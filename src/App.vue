@@ -1,22 +1,27 @@
 <script>
+import { ref } from 'vue'
+
 export default {
-  data() {
-    return {
-      name: 'Akonkwa Ushindi',
-      status: 'active',
-      tasks: ['task one', 'task two', 'task three'],
-      link: 'https://google.com'
-    }
-  },
-  methods: {
-    toogleStatus() {
-      if (this.status === 'active') {
-        this.status = 'pending  '
-      } else if (this.status === 'pending') {
-        this.status = 'inactive'
+  setup() {
+    const name = ref('Akonkwa Ushindi')
+    const status = ref('active')
+    const tasks = ref(['Task one', 'Task two', 'Task three'])
+    const link = ref('https://google.com')
+    const toogleStatus = () => {
+      if (status.value === 'active') {
+        status.value = 'pending  '
+      } else if (status.value === 'pending') {
+        status.value = 'inactive'
       } else {
-        this.status = 'active'
+        status.value = 'active'
       }
+    }
+    return {
+      name,
+      status,
+      link,
+      tasks,
+      toogleStatus
     }
   }
 }
@@ -32,6 +37,6 @@ export default {
     <li v-for="(task, i) in tasks" :key="task">{{ i + 1 }}. {{ task }}</li>
   </ul>
   <a :href="link">Click here for Google</a>
-  <br>
+  <br />
   <button @click="toogleStatus">Click here for change status</button>
 </template>
