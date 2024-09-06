@@ -5,6 +5,7 @@ export default {
       name: "Akonkwa Ushindi",
       status: 'active',
       tasks: ['task one', 'task two', 'task three'],
+      link: "https://google.com",
     };
   },
 };
@@ -19,4 +20,5 @@ export default {
   <ul>
     <li v-for="task, i in tasks" :key="task">{{i+1}}. {{ task }}</li>
   </ul>
+  <a :href="link">Click here for Google</a>
 </template>
