@@ -32,5 +32,6 @@ export default {
     <li v-for="(task, i) in tasks" :key="task">{{ i + 1 }}. {{ task }}</li>
   </ul>
   <a :href="link">Click here for Google</a>
+  <br>
   <button @click="toogleStatus">Click here for change status</button>
 </template>
